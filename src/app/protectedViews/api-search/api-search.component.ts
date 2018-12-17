@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiSearchService, base } from '../../services/api-search.service'
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-api-search',
@@ -16,7 +17,8 @@ export class ApiSearchComponent {
   results : Results[]; 
 
   constructor(
-    private apiSearchService : ApiSearchService
+    private apiSearchService : ApiSearchService,
+    private location : Location
   ) { }
 
   submitSearch() : any {
@@ -24,7 +26,13 @@ export class ApiSearchComponent {
       .subscribe(results => this.results = results)
   }
 
+  onSubmit(){}
+
+  onCancel(): void {
+    this.location.back();
+  }
 }
+
 export interface Endpoint {
   baseURL : string;
   termURL : string;

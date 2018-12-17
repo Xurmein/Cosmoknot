@@ -6,7 +6,6 @@ import { ActiveUserData } from '../../models/activeUser';
 @Component({
   selector: 'app-login-diag-box',
   template: `
-    {{ diagnostic }}
     <h2 mat-dialog-title>Login to your Cosmoknot Account</h2>
     <div mat-dialog-content>
       <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
@@ -21,12 +20,12 @@ import { ActiveUserData } from '../../models/activeUser';
         <mat-slide-toggle (click)="loginAsAdmin()" name="is_admin" [(ngModel)]="user.is_admin">Are you an admin?</mat-slide-toggle>
         <mat-form-field *ngIf="user.is_admin===true">
           <p>Admin Email:</p>
-          <input matInput type="text" name="adminID" [(ngModel)]="adminID" required>
+          <input matInput type="text" name="adminID" [(ngModel)]="user.adminID" required>
         </mat-form-field>
       </form>
       <div mat-dialog-actions>
         <button mat-button (click)="onCancel()" color="warn">Cancel</button>
-        <button mat-button (click)="submitted=false" color="accent">Login</button>
+        <button mat-button (click)="[submitted]=false" color="accent">Login</button>
       </div>
     </div>
   `,

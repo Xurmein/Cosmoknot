@@ -24,14 +24,14 @@ import { AdminData } from '../../models/admin';
     </form>
     <div mat-dialog-actions>
       <button mat-button (click)="onCancel()" color="warn">Cancel</button>
-      <button mat-button (click)="submitted=false" color="accent">Register Account</button>
+      <button mat-button (click)="[submitted]=false" color="accent">Register Account</button>
     </div>
 </div>`,
   styleUrls: ['./register-admin-diag-box.component.css']
 })
 export class RegisterAdminDiagBoxComponent{
   user = new AdminData;
-  loginForm : JSON; 
+  regForm : JSON; 
   submitted : boolean;
 
 
@@ -48,7 +48,7 @@ export class RegisterAdminDiagBoxComponent{
   }
     
   onSubmit(): void {
-    if(this.loginForm !== null){
+    if(this.regForm !== null){
       this.auth.login(
         this.activeUser
       )

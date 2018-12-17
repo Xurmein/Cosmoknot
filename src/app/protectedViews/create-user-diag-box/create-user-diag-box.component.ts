@@ -2,6 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { UserData } from '../../models/user';
+import { AuthorizationService } from 'src/app/services/authorization.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-create-user-diag-box',
@@ -24,7 +26,7 @@ import { UserData } from '../../models/user';
     </form>
     <div mat-dialog-actions>
       <button mat-button (click)="onCancel()" color="warn">Cancel</button>
-      <button mat-button (click)="submitted=false" color="accent">Create User</button>
+      <button mat-button (click)="[submitted]=false" color="accent">Create User</button>
     </div>
   </div>
   `,
@@ -32,12 +34,32 @@ import { UserData } from '../../models/user';
 })
 export class CreateUserDiagBoxComponent {
   user = new UserData;
-
+  newUserForm : JSON; 
+  submitted : boolean;
   
   constructor(
+    @Inject(MAT_DIALOG_DATA) public userData : UserData,
     private createDiagRef : MatDialogRef<CreateUserDiagBoxComponent>,
-    @Inject(MAT_DIALOG_DATA) public userData : UserData
+    private auth : AuthorizationService,
+    private location : Location
   ) { }
+
+    
+  onSubmit(): void {
+    if(this.newUserForm !== null){
+      this.auth.login(
+        this.user
+      )
+    }
+    this.ifSubmit()
+  }
+
+  ifSubmit(): void {
+    this.submitted = true
+    if(this.submitted = true){
+      this.location.back();
+    }
+  }
 
   onCancel() : void {
     this.createDiagRef.close();
