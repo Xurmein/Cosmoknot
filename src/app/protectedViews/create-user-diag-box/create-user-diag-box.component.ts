@@ -26,7 +26,7 @@ import { Location } from '@angular/common';
     </form>
     <div mat-dialog-actions>
       <button mat-button (click)="onCancel()" color="warn">Cancel</button>
-      <button mat-button (click)="[submitted]=false" color="accent">Create User</button>
+      <button mat-button (click)="[submitted=false]" color="accent">Create User</button>
     </div>
   </div>
   `,

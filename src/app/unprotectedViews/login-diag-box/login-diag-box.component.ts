@@ -25,7 +25,7 @@ import { ActiveUserData } from '../../models/activeUser';
       </form>
       <div mat-dialog-actions>
         <button mat-button (click)="onCancel()" color="warn">Cancel</button>
-        <button mat-button (click)="[submitted]=false" color="accent">Login</button>
+        <button mat-button (click)="[submitted=false]" color="accent">Login</button>
       </div>
     </div>
   `,
