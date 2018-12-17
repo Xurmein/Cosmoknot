@@ -1,11 +1,11 @@
 {
   "name": "cosmoknot",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "engines": {
-    "node": "10.x",
+    "node": "^10.x",
     "npm": "6.5.0"
   },
-  "main": "index.html",
+  "main": "main.ts",
   "scripts": {
     "ng": "ng",
     "start": "serve -s dist/cosmoknot",
