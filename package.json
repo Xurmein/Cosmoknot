@@ -1,14 +1,18 @@
 {
   "name": "cosmoknot",
   "version": "0.0.0",
+  "engines":{
+    "node":"8.11.4",
+    "npm":"6.5.0"
+  },
   "scripts": {
     "ng": "ng",
+    "start": "serve -s dist/cosmoknot",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --prod",
-    "start": "serve -s dist/cosmoknot"
+    "postinstall": "ng build --prod"
   },
   "private": true,
   "dependencies": {
