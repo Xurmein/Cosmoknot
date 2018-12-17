@@ -18,7 +18,7 @@ import { ActiveUserData } from '../../models/activeUser';
           <input matInput type="password" name="password" [(ngModel)]="user.password" required>
         </mat-form-field>
         <mat-slide-toggle (click)="loginAsAdmin()" name="is_admin" [(ngModel)]="user.is_admin">Are you an admin?</mat-slide-toggle>
-        <mat-form-field *ngIf="{{user.is_admin===true}}">
+        <mat-form-field *ngIf="user.is_admin=true">
           <p>Admin Email:</p>
           <input matInput type="text" name="adminID" [(ngModel)]="user.adminID" required>
         </mat-form-field>
@@ -34,7 +34,7 @@ import { ActiveUserData } from '../../models/activeUser';
 export class LoginDiagBoxComponent {
   user = new ActiveUserData
   loginForm : JSON; 
-  submitted : boolean;
+  submitted = false;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public activeUser : ActiveUserData,
